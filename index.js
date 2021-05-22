@@ -9,7 +9,6 @@ const {
 } = process.env;
 
 const wakatime = new WakaTimeClient(wakatimeApiKey);
-
 const octokit = new Octokit({ auth: `token ${githubToken}` });
 
 async function main() {

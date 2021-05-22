@@ -11,6 +11,8 @@ const {
 const wakatime = new WakaTimeClient(wakatimeApiKey);
 const octokit = new Octokit({ auth: `token ${githubToken}` });
 
+(async () => { await main() })()
+
 async function main() {
   const stats = await wakatime.getMyStats({ range: RANGE.LAST_7_DAYS });
   await updateGist(stats);
@@ -106,7 +108,3 @@ function unicodeProgressBar(p, style = 7, min_size = 20, max_size = 20) {
   }
   return r;
 }
-
-(async () => {
-  await main();
-})();

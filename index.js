@@ -31,7 +31,7 @@ async function updateGist (stats) {
     const data = stats.data.languages[i]
     const { name, percent, digital } = data
     const line = [
-      name.padEnd(11),
+      name.padEnd(15),
       digital.padStart(5) + ' ',
       unicodeProgressBar(percent),
       String(percent.toFixed(1)).padStart(4) + '%'
@@ -75,7 +75,7 @@ const bar_styles = [
   '⚪⚫'
 ]
 
-function unicodeProgressBar (p, style = 5, min_size = 29, max_size = 29) {
+function unicodeProgressBar (p, style = 5, min_size = 25, max_size = 25) {
   let d
   let full
   let m

@@ -29,7 +29,12 @@ async function updateGist (stats) {
   const lines = []
   for (let i = 0; i < Math.min(stats.data.languages.length, 4); i++) {
     const data = stats.data.languages[i]
-    const { name, percent, digital } = data
+    let { name, percent, digital } = data
+    if (name.length > 12) {
+      name = name.substring(0, 12)
+      name += '...'
+    }
+    
     const line = [
       name.padEnd(15),
       digital.padStart(5) + ' ',
@@ -46,7 +51,7 @@ async function updateGist (stats) {
       gist_id: gistId,
       files: {
         [filename]: {
-          filename: '🚀 Weekly breakdown',
+          filename: 'Weekly breakdown',
           content: lines.join('\n')
         }
       }

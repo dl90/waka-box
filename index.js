@@ -31,13 +31,13 @@ async function updateGist (stats) {
     const data = stats.data.languages[i]
     let { name, percent, digital } = data
     if (name.length > 12) {
-      name = name.substring(0, 12)
+      name = name.substring(0, 9)
       name += '...'
     }
     
     const line = [
-      name.padEnd(15),
-      digital.padStart(5) + ' ',
+      name.padEnd(12),
+      digital.padStart(4) + ' ',
       unicodeProgressBar(percent),
       String(percent.toFixed(1)).padStart(4) + '%'
     ]

@@ -37,7 +37,7 @@ async function updateGist (stats) {
     
     const line = [
       name.padEnd(12),
-      digital.padStart(4) + ' ',
+      digital.padStart(5) + ' ',
       unicodeProgressBar(percent),
       String(percent.toFixed(1)).padStart(4) + '%'
     ]

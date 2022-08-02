@@ -27,7 +27,7 @@ async function updateGist (stats) {
   }
 
   const lines = []
-  for (let i = 0; i < Math.min(stats.data.languages.length, 4); i++) {
+  for (let i = 0; i < Math.min(stats?.data?.languages?.length ?? 0, 4); i++) {
     const data = stats.data.languages[i]
     let { name, percent, digital } = data
     if (name.length > 12) {
